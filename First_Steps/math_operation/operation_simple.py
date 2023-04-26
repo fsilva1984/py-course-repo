@@ -12,6 +12,8 @@ print(71 / 15)# Divisao
 
 print(71 // 15)# Divisao retornando um numero inteiro ou ceja ele retira as cas decimais
 
+print(71 % 3)# Resto da divisao
+
 print('')
 print("Precedencia de operadores")
 print("")
@@ -21,5 +23,3 @@ print(55 + 15 - 10 * 2)# Aqui temos a Multiplicacao com precedencia sobre a adic
 print(75 / 5 - 5 * 2)# Aqui temos a Divisao com precedencia sobre a multiplicacao
 
 print(23 * 4 - (10 + 5))# Aqui a uma precedencia dos numeros entre parenteses pois na matematica eles tem prioridade
-
-
