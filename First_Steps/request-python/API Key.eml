@@ -1,0 +1,94 @@
+Delivered-To: fsilva.py@gmail.com
+Received: by 2002:a05:6f02:806:b0:62:909c:c949 with SMTP id 6csp283682rcl;
+        Fri, 9 Feb 2024 14:14:11 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGdKquqgzy65dInhAK4wWic6Em2OsHABgVymvwJPKeAqlqKp3zw/vLRQT0DkEl0s2WKITO3
+X-Received: by 2002:a05:6808:319b:b0:3c0:2a95:d3c4 with SMTP id cd27-20020a056808319b00b003c02a95d3c4mr507944oib.12.1707516851294;
+        Fri, 09 Feb 2024 14:14:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1707516851; cv=none;
+        d=google.com; s=arc-20160816;
+        b=qvjWC91EiiDeZIFYQUFjgEtKshIuoZ6qRVQMizBwjcABnzwah8MTwHaI8hAe2Sz177
+         hHEYEdrxIV9hkYb6UESKeUa/RG56AI7YusjZ2Mj5dYrGBLcxCXXYX2NvTjo0I2aKvKt0
+         u8hN+EzuTT2SZvTiamN3b2AhZkyr8xgyfV6miHDKS9hdJ07Fqo33aFDMquzF8stxPOZh
+         wDC30d7dZ3VQPQlVVbaXn8PvJP6xwUaul+hrGjKYmubXV9FmjN3U7oDogB8kYIQp7Ip6
+         L98dZFXzP4eu/CEKEJOLeT2XZTuIDfwjAaCtVXEPv40VdxIKQvl+gSQinWoB5EDvXMlo
+         UYTw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:message-id:content-transfer-encoding:subject:date:from
+         :mime-version:dkim-signature:dkim-signature;
+        bh=fzuC+TOI8MTmatY0pAeekSJHgywTT/CMve8soC2sfcs=;
+        fh=y+4NTxRL/v+IpUWtcUP+95oJzvycIQMtrR3tXl55vyk=;
+        b=DhS0f88hTi4ArHdvjtBROSu9qSgEO5G/nd81TTJydxlfVjKJS8DuIUwx6nXfBGpvhX
+         88xQOtvawZVFZB8jWRAUFWKo4W7OJBfDqJJflc655U8YwZDF3oImpW6sFFB3c+Tgfiqy
+         Tvh/A48IuwpbAtc6uaxV6pvCsouwcEm5EPjSovgHKfYFkCrCUOhlAMVmXpIOeJTubmUU
+         gLg+cLL49Bctjuyt3qJh43sRvi74PCiH7pO1ruvUO7lvGqBKpws8hLtT+zY/7L1vQ6N/
+         5kEet7pEa/Tx8c6lLAN68IYPt5Oa+NiihSuyFEd+a20eqJF2EmhkagcK5df/+A15CBXc
+         hwgA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@omdbapi.com header.s=s1 header.b=Z21aSOxJ;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=B9vJAoDJ;
+       spf=pass (google.com: domain of bounces+25030585-a277-fsilva.py=gmail.com@em9189.omdbapi.com designates 149.72.123.24 as permitted sender) smtp.mailfrom="bounces+25030585-a277-fsilva.py=gmail.com@em9189.omdbapi.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=omdbapi.com
+Return-Path: <bounces+25030585-a277-fsilva.py=gmail.com@em9189.omdbapi.com>
+Received: from s.wrqvtbkv.outbound-mail.sendgrid.net (s.wrqvtbkv.outbound-mail.sendgrid.net. [149.72.123.24])
+        by mx.google.com with ESMTPS id a16-20020a05620a16d000b00785937aff0bsi403962qkn.553.2024.02.09.14.14.10
+        for <fsilva.py@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 09 Feb 2024 14:14:11 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+25030585-a277-fsilva.py=gmail.com@em9189.omdbapi.com designates 149.72.123.24 as permitted sender) client-ip=149.72.123.24;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@omdbapi.com header.s=s1 header.b=Z21aSOxJ;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=B9vJAoDJ;
+       spf=pass (google.com: domain of bounces+25030585-a277-fsilva.py=gmail.com@em9189.omdbapi.com designates 149.72.123.24 as permitted sender) smtp.mailfrom="bounces+25030585-a277-fsilva.py=gmail.com@em9189.omdbapi.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=omdbapi.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=omdbapi.com;
+	h=mime-version:from:subject:content-type:content-transfer-encoding:
+	x-feedback-id:to:cc:content-type:from:subject:to;
+	s=s1; bh=fzuC+TOI8MTmatY0pAeekSJHgywTT/CMve8soC2sfcs=;
+	b=Z21aSOxJyJqAjD2Vn60muDdHtukLmZg6arhQg3caGCnWfzs65VnJsgdnPy7/eZ9rnHNC
+	t21NatV04JZF6VRjqQUfVl3HTfeAJurAOLtTWmoDaJRO6LkZ3gTzOUTXY8ndCzUW/Hv4n0
+	HsWecv2f/Nxs/JZX61JWEi3CYV+BBkBBXuDLtJa7cmYG1TZiGq2Mf7s2JYUwApnd+KQpqS
+	msnT7vhHv4YgSyvfP14GGGED31EOGcDwA/PALmop+kfgppJR7HJeFqYhI+8Db2i67CYh6m
+	8mYwlRyGTRCy5jEuQkMca/BJMoRsXGNXOu+6q/DvuYMHXFTNB1d/9RFVzWN2zuFw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=mime-version:from:subject:content-type:content-transfer-encoding:
+	x-feedback-id:to:cc:content-type:from:subject:to;
+	s=smtpapi; bh=fzuC+TOI8MTmatY0pAeekSJHgywTT/CMve8soC2sfcs=;
+	b=B9vJAoDJJm1hJwe3aUrn7JcIb3skEa0QhNzI6BmfUxCUgj2+42K4NxqvUi22GGmr71QI
+	2QCdHmD5QKSclGNnqmDb0riKFn5rVm8da4AjMFQSDVOFCS79UKs0qdZQb1VYJWggFndCTh
+	MHmJk5LORxzHkmif3OqYMVfZNw9Gm7U+U=
+Received: by filterdrecv-656b5b4c75-pnrz8 with SMTP id filterdrecv-656b5b4c75-pnrz8-1-65C6A3B2-12
+        2024-02-09 22:14:10.708763645 +0000 UTC m=+256384.805604864
+Received: from omdb2 (unknown)
+	by geopod-ismtpd-13 (SG) with ESMTP
+	id jVc7rFBlTomLUFKmc0wNLQ
+	for <fsilva.py@gmail.com>;
+	Fri, 09 Feb 2024 22:14:10.403 +0000 (UTC)
+MIME-Version: 1.0
+From: The OMDb API <donotreply@omdbapi.com>
+Date: Fri, 09 Feb 2024 22:14:10 +0000 (UTC)
+Subject: API Key
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
+Message-ID: <jVc7rFBlTomLUFKmc0wNLQ@geopod-ismtpd-13>
+X-Feedback-ID: 25030585:SG
+X-SG-EID: 
+ =?us-ascii?Q?l0Tg5JFyq=2FegTMR6Isa6wyDsY2tUwQg5TreejUDmCdeGeUgifFxqKL2Ez=2FNy69?=
+ =?us-ascii?Q?OsWnVEFs0A8ctcF5=2FI5c+Twkot9vXSUuFxW09NX?=
+ =?us-ascii?Q?ktgmaMrqXUCsaDXb77f4zixagvKGuAeYap9vwq1?=
+ =?us-ascii?Q?ikR2qFhFvUDw2ZAG8qF+hZCm9l2tBkDmO0x2WlF?=
+ =?us-ascii?Q?iSFYam5=2FQajrcbSiJtfITpK7M2SpfMZLteXMlFp?=
+ =?us-ascii?Q?4dnRZLc=2FKWGZV3A552LSuxgCSgYL9bqSyGXXSe?=
+To: fsilva.py@gmail.com
+X-Entity-ID: uR3TAeWci0rEDjA70WMORQ==
+
+Here is your key: 2bcb9bf2
+
+Please append it to all of your API requests,
+
+OMDb API: http://www.omdbapi.com/?i=3Dtt3896198&apikey=3D2bcb9bf2
+
+Click the following URL to activate your key: http://www.omdbapi.com/apikey=
+.aspx?VERIFYKEY=3D27504e04-0cc1-45fe-bc72-6d3e3f67bbff
+If you did not make this request, please disregard this email.
+
