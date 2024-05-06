@@ -11,26 +11,23 @@ print(f'''
 
 {''.center(25, '-')}
 ''')
+initial_value = -1
+extract = ''
+balance = 0.0
 
+while initial_value != 0:
+  choice = int(input(': '))
 
-choices = -1
+  if choice == 1:
+    value =  float(input('R$: '))
+    extract += ' ' + value
+  elif choice == 2:
 
-while choices != 0:
-  
-  if condition:
-    pass
-  depositos = float(input('Valor R$: '))
-  saques = float(input)
-  
-
-
-
-
-# extrato = ''
-
-# if depositos:
-#   extrato += depositos
-# else:
-#   extrato += saques
-  
-# print(extrato)
+    balance += value
+    print(git config --global user.name)
+  elif choice == 3:
+    print('extrato')
+  elif choice == 0:
+    print('atel logo')
+    initial_value = 0
+SystemExit()
