@@ -6,8 +6,8 @@ print(f'''
   
   [0] - for exit
   [1] - for deposit
-  [2] - for extract
-  [3] - for balance
+  [2] - for balance
+  [3] - for extract
 
 {''.center(25, '-')}
 ''')
@@ -20,34 +20,35 @@ while initial_value != 0:
 
   if choice == 1:
     value = float(input('R$: '))
-
-  # extract += ' ' + value
-  # TypeError: can only concatenate str (not "float") to str
-
-
-    extract += ' ' + value
+    extract += 'Dep. R$ ' + str(value) + '\n'
     balance += value
+    print('Done.')
+
   elif choice == 2:
     if balance == 0.0:
-      print('sem movimentacao.')
+      print('no movement.')
     else:
       print(balance)
+
   elif choice == 3:
     print(extract)
+
   elif choice == 0:
-    print('atel logo')
+    print('Goodbye')
     initial_value = 0
+    print('')
+
   else:
-    print('argumento desconhecido')
+    print()
+    print('unknown option')
     print(f'''
   
-{' help! '.center(25, '-')}
+  {' help! '.center(25, '-')}
   
-  [0] - for exit
-  [1] - for deposit
-  [2] - for extract
-  [3] - for balance
+    [0] - for exit
+    [1] - for deposit
+    [2] - for extract
+    [3] - for balance
 
-{''.center(25, '-')}
-''')
+  {''.center(25, '-')}''')
 SystemExit()
