@@ -19,15 +19,35 @@ while initial_value != 0:
   choice = int(input(': '))
 
   if choice == 1:
-    value =  float(input('R$: '))
-    extract += ' ' + value
-  elif choice == 2:
+    value = float(input('R$: '))
 
+  # extract += ' ' + value
+  # TypeError: can only concatenate str (not "float") to str
+
+
+    extract += ' ' + value
     balance += value
-    print(git config --global user.name)
+  elif choice == 2:
+    if balance == 0.0:
+      print('sem movimentacao.')
+    else:
+      print(balance)
   elif choice == 3:
-    print('extrato')
+    print(extract)
   elif choice == 0:
     print('atel logo')
     initial_value = 0
+  else:
+    print('argumento desconhecido')
+    print(f'''
+  
+{' help! '.center(25, '-')}
+  
+  [0] - for exit
+  [1] - for deposit
+  [2] - for extract
+  [3] - for balance
+
+{''.center(25, '-')}
+''')
 SystemExit()
