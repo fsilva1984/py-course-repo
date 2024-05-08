@@ -7,7 +7,8 @@ print(f'''
   [0] - for exit
   [1] - for deposit
   [2] - for balance
-  [3] - for extract
+  [3] - for withdraw
+  [4] - for extract
 
 {''.center(25, '-')}
 ''')
@@ -24,31 +25,47 @@ while initial_value != 0:
     balance += value
     print('Done.')
 
+
   elif choice == 2:
     if balance == 0.0:
       print('no movement.')
     else:
-      print(balance)
+      print('Balance available R$: %.2F' % (balance))
+
 
   elif choice == 3:
+    withdraw = float(input('R$: '))
+    if withdraw > balance:
+      print('not enough balance')
+      print(f'balance of the day R$: %.2f' % (balance))
+    else:
+      balance = balance - withdraw
+      extract += 'Whd. R$ ' + str(withdraw) + '\n'
+
+
+  elif choice == 4:
     print(extract)
+    print(f'Total R$: %.2f' % (balance))
+
 
   elif choice == 0:
     print('Goodbye')
     initial_value = 0
     print('')
 
+
   else:
     print()
-    print('unknown option')
+    print('unknown option'.center(19, ' '))
     print(f'''
   
   {' help! '.center(25, '-')}
   
     [0] - for exit
     [1] - for deposit
-    [2] - for extract
-    [3] - for balance
+    [2] - for balance
+    [3] - for withdraw
+    [4] - for extract
 
   {''.center(25, '-')}''')
 SystemExit()
