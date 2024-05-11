@@ -14,6 +14,6 @@ print(frutas.index('Caju'))
 # metodo len() para obter o tamanho exato da tupla
 print(len(frutas))
 
-# iterando a tpla
+# iterando a tupla
 for i, fruit in enumerate(frutas):
     print(f' {i} - {frutas[i]}')
