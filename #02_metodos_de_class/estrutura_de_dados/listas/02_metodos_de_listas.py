@@ -65,7 +65,7 @@ print(f' A primeira ocorrencia de Caja esta no indice {frutas_copia.index('Caja'
 
 # metodo pop para retirar o ultimo elemento da pilha
 # pois a lista e uma estrutura de pilha
-# porem podeos passar o indice do elemento a ser removido
+# porem podemos passar o indice do elemento a ser removido
 
 
 print(f' Foi removido o elemento {frutas_copia.pop()}')
