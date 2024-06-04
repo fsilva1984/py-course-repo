@@ -1,7 +1,9 @@
 print()        
 
-def operation_user():    
-
+# **** operations for logged in users ****
+def operation_user(user):
+    print(f' Welcome {user} '.center(24, '*'))
+    print()
     print(f'''
 
         {' Menu '.center(24, '-')}
@@ -70,6 +72,8 @@ def operation_user():
 
 print()
 
+# ****  Display Login ****
+
 print(f'''
     {' Welcome the internet bank '.center(36, '*')}
     
@@ -77,54 +81,52 @@ print(f'''
     Enter 0 to register a new user.    
 ''')
 
-regystre_user = -1
-
+# **** Data of User ****
 data_user = {
-    
-    'name': {
-        'cpf': '',
-        'passwd':''
-    },
+    'name': '',
+    'cpf': '',
+    'passwd':''
 }
 
-tent = 0
-
-def clients():
-       for user in data_user:
-        if data_user[user] == cpf and data_user == passwd:
-            return True
-        else:
-            return False
-
-
+# **** for unregistered users ****
 def regystre_user():
+    data_user['name'] = input('Nome: ')
+    data_user['cpf'] = input('CPF: ')
+    data_user['passwd'] = input('Senha: ')
+    operation_user(data_user['name'])
+
+def exit_function():
+    print('Goodbye :)')
+    SystemExit()
+    
+
+def call_of_registre():
+    print()
+    print('You don\'t have a registration yet, Reply yes or not')
+    print()
+    choise = input('Do you want to register: ')
+    if choise == 'yes':
+        regystre_user()
+    else:
+        exit_function()
+        
+
+# **** check if user is registered ****
+
+def user_account():
     name = input('Nome: ')
     cpf = input('CPF: ')
     passwd = input('Senha: ')
-    data_user[name] = cpf
- 
-            
-
-def end_choise():
-    print('Tentativas esgotadas, Responda y ou n')
-    choise = input('Deseja se regidtar: ')
-    if choise == 'y':
-        regystre_user()
+    
+    for data in data_user:
+            if data_user[data] == name and data_user[data] == cpf and data_user[data] == passwd:
+                operation_user(data_user['name'])
+            else:
+                call_of_registre()
 
 
-while access != 0:
-   
-    if regystre_user():
-        print("Welcome")
-        
-    elif tent >= 2:
-        end_choise()
-        access = 0
-        
-    else:
-        print("Falid")
-        tent += 1
-        print()
+access = 1
 
-
-SystemExit()
+while access >= 1:
+    user_account()
+    access -= 1
