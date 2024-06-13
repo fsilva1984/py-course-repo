@@ -29,7 +29,7 @@ class Bicicleta:
 
     # retornando os valores da class de forma dinamica
     def __str__(self):
-        return f'{self.__class__.__name__}: {', '.join([f'{chave}={valor}' for chave, valor in self.__dict__.items()])}'
+        return f'{self.__class__.__name__}: {", ".join([f"{chave}={valor}" for chave, valor in self.__dict__.items()])}'
         
 
 
@@ -37,7 +37,7 @@ class Bicicleta:
 
 bike = Bicicleta('Vermelha', 'Caloi', '2022', '1.200')
 
-print(bike.modelo)
+print(bike.modelo)  
 print(bike.cor)
 
 print()
