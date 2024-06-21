@@ -13,5 +13,36 @@ else:
   print(False)
 
 
+class Pet:
+  def __init__(self, cor, raca, idade):
+    self.cor = cor
+    self.raca = raca
+    self.idade = idade
+    
+  def __str__(self) -> str:
+    return f'{self.__class__.__name__}: {", ".join([f"{chave}:{valor}" for chave, valor in self.__dict__.items()])}'
 
+
+class Gato(Pet):
+  pass
+
+persa = Gato('Amarelo', 'Persa', '1.3')
+
+print()
+print(persa)
+
+
+class Coelho(Pet):
+  pass
+
+class Cachorro(Pet):
+  def __init__(self, cor, raca, idade, port_grande=False):
+    super().__init__(cor, raca, idade)
+    self.port_grande = port_grande
+
+
+saobernado = Cachorro('castanho', 'sao bernado', '2 anos', True)
+
+print()
+print(saobernado)
 

@@ -19,6 +19,8 @@ class Car:
   def __del__(self):
     print('A memoria foi limpa!')
 
+
+# uma instancia tambem chamadaa de objeto da class Car
 fusca = Car('Branco', 'Antigo', '1986', False)
 
 print()
