@@ -19,26 +19,29 @@ class Pardao(Ave):
 class Tucano(Ave):
   pass
 
-# a class galinha recebeu a heranca da
-# class Ave, porem teve seu metodo sobrescrito
-class Galinha(Ave):
-  def voar(self):
-    return 'Nao voa'
+# a class galinha nao recebeu a heranca da class Ave.
+class Galinha():
+ pass
+
+# o polimorfismo sica por conta da funcao "ave_que_voa"
+# essa funcao verifica se a instancia tem o metodo "voar"
+# e retorna um valor.
+
+def ave_que_voa(instance, voar):
+  if hasattr(instance, voar) and callable(instance.voar):
+    print(instance.voar())
+  else:
+    print("Essa ave não vooa")
 
 
-def ave_que_voa(param):
-  print(param.voar())
-
-
-
-ave_que_voa(Pardao())
+ave_que_voa(Pardao(), 'voar')
 print()
 
-ave_que_voa(Tucano())
+ave_que_voa(Tucano(), 'voar')
 print()
 
-ave_que_voa(Galinha())
+ave_que_voa(Galinha(), 'voar')
 print()
 
-ave_que_voa(Ave())
+ave_que_voa(Ave(), 'voar')
 
